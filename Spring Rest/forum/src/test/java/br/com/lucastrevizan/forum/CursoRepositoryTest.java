@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 
 import javax.persistence.EntityManager;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+
 @ActiveProfiles("test")
 public class CursoRepositoryTest {
 
@@ -20,9 +21,7 @@ public class CursoRepositoryTest {
     private CursoRepository cursoRepository;
 
     @Autowired
-    private EntityManager em;
-
-
+    private TestEntityManager em;
 
     @Test
     public void deveriaRetornarUmCursoQuandoBuscadoPeloNome(){
